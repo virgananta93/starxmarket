@@ -19,7 +19,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/">Login</b-nav-item>
-          <b-nav-item class="register-btn" pill variant="outline-warning" to="/">Register</b-nav-item>
+          <b-button class="register-btn align-middle" pill variant="outline-warning" to="/">Register</b-button>
           <b-nav-item to="/">Support</b-nav-item>
 
           <!-- Language items -->
@@ -50,12 +50,16 @@ export default {
     text-align: right;
 }
 
-.navbar-nav>li {
+.navbar-nav {
+    align-items: center;
+
+    li {
     padding: 0 50px;
 
     a {
         color: #e2ac2f !important;
     }
+}
 }
 
 .navbar-toggler {
