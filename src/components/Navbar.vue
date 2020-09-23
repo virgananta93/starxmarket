@@ -7,7 +7,7 @@
           <b-icon v-else icon="list" variant="dark"></b-icon>
         </template>
       </b-navbar-toggle>
-
+      
       <!-- Left aligned nav items -->
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
