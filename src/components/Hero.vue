@@ -31,6 +31,9 @@ export default {
         {
           src:
             "https://ik.imagekit.io/virgananta/tr:w-1920,h-700,f-jpg,pr-true/StarWork/photo-1590283603385-17ffb3a7f29f_6PUBfPBOn.jpg",
+            tagline_strong: "Trustworthy Service",
+          tagline_small: "Your one stop exchange trusted exchange service",
+          button: "Register Now",
         },
       ],
     };
@@ -43,7 +46,7 @@ export default {
 
 .hero-tagline {
     position: absolute;
-    bottom: 280px;
+    bottom: 15rem;
     width: 60%;
     text-align: left;
 
