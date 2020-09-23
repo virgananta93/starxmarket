@@ -17,7 +17,6 @@
         </b-nav-form>
       </b-nav>
     </b-container>
-     <b-table striped hover :items="vendors"></b-table>
   </b-container>
 </template>
 
