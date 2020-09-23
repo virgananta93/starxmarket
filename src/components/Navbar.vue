@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <b-navbar toggleable="lg" type="dark" class="fixed-top" sticky>
+    <b-navbar toggleable="lg" type="dark" class="fixed-top">
       <b-navbar-toggle target="nav-collapse" class="ml-auto">
         <template v-slot:default="{ expanded }">
           <b-icon v-if="expanded" icon="chevron-compact-up" variant="dark"></b-icon>
@@ -19,7 +19,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/">Login</b-nav-item>
-          <b-nav-item class="register" pill variant="outline-warning" to="/">Register</b-nav-item>
+          <b-nav-item class="register-btn" pill variant="outline-warning" to="/">Register</b-nav-item>
           <b-nav-item to="/">Support</b-nav-item>
 
           <!-- Language items -->
