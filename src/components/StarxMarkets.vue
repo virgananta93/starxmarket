@@ -1,21 +1,19 @@
 <template>
-  <b-container fluid>
-    <b-tabs content-class="mt-3" justified>
-     <b-tab active>
-      <template v-slot:title>
-       <p>STARX Markets</p>
-      </template>
-      <p class="p-3">STARX Markets</p>
-    </b-tab>
-
-    <b-tab>
-      <template v-slot:title>
-        <b-spinner type="border" small></b-spinner> Tab 2
-      </template>
-      <p class="p-3">Tab contents 2</p>
-    </b-tab>
-    </b-tabs>
+<b-container fluid class="starxheader">
+      <b-container>
+    <b-nav fill>
+    <b-nav-item active>STARX Markets</b-nav-item>
+    <b-nav-item>Link</b-nav-item>
+    <b-nav-item>Another Link</b-nav-item>
+    <b-nav-form>
+          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+        </b-nav-form>
+  </b-nav>
   </b-container>
+</b-container>
+
+  
 </template>
 
 <script>
@@ -24,5 +22,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+    .starxheader{
+        background-color:rgb(13, 13, 49);
+        padding: 10px 0;
+    }
 </style>

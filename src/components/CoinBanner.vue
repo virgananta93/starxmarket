@@ -107,7 +107,7 @@ export default {
 }
 
 .coin-banner {
-  padding: 50px 0;
+  padding: 20px 0;
   .coin-vendor {
     font-weight: bold;
     color: #142157;
