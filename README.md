@@ -1,5 +1,6 @@
 # starxmarket
-
+## What is this?
+this is just a VUE version of the project for job.
 ## Project setup
 ```
 npm install
