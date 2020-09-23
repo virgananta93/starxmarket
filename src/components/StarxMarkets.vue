@@ -1,38 +1,49 @@
 <template>
-  <b-container fluid class="starxheader">
-    <b-container>
-      <b-nav fill>
-        <b-nav-item active>STARX Markets</b-nav-item>
-        <b-nav-item>Link</b-nav-item>
-        <b-nav-item>Another Link</b-nav-item>
-        <b-nav-form>
-          <b-form-input
-            size="sm"
-            class="mr-sm-2"
-            placeholder="Search"
-          ></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit"
-            >Search</b-button
-          >
-        </b-nav-form>
-      </b-nav>
-    </b-container>
-  </b-container>
+  <div class="starlisting">
+    <TabNav
+      :tabs="['STARX Markets', 'USDT Markets', 'Favorites']"
+      :selected="selected"
+      @selected="setSelected"
+    >
+      <Tab :isSelected="selected === 'STARX Markets'">
+        TEST
+      </Tab>
+      <Tab :isSelected="selected === 'USDT Markets'">
+        TESTssad
+      </Tab>
+      <Tab :isSelected="selected === 'Favorites'">
+        ASDJAPSODJPASJ
+      </Tab>
+    </TabNav>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
 import VueAxios from "vue-axios";
+import TabNav from "@/components/TabNav.vue";
+import Tab from "@/components/Tab.vue";
+
 import Vue from "vue";
 
 Vue.use(VueAxios, axios);
 
 export default {
   name: "StarxMarkets",
+  components: {
+    TabNav,
+    Tab,
+  },
   data() {
     return {
+      selected: "STARX Markets",
       vendors: [],
     };
+  },
+  methods: {
+    setSelected(tab) {
+      this.selected = tab;
+    },
   },
   mounted() {
     Vue.axios
@@ -57,8 +68,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.starxheader {
-  background-color: rgb(13, 13, 49);
-  padding: 10px 0;
-}
+
 </style>
