@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <b-navbar toggleable="lg" type="dark" class="fixed-top">
+    <b-navbar toggleable="lg" id="nav" type="dark" class="fixed-top navbar">
       <b-navbar-toggle target="nav-collapse" class="ml-auto">
         <template v-slot:default="{ expanded }">
           <b-icon v-if="expanded" icon="chevron-compact-up" variant="dark"></b-icon>
@@ -42,6 +42,24 @@
 <script>
 export default {
   name: "Navbar",
+    mounted() {
+      this.$nextTick(function(){
+        window.addEventListener("scroll", function(){
+          var navbar = document.getElementById("nav")
+          var nav_classes = navbar.classList
+          if(document.documentElement.scrollTop >= 150) {
+            if (nav_classes.contains("shrink") === false) {
+              nav_classes.toggle("shrink");
+            }
+          }
+          else {
+            if (nav_classes.contains("shrink") === true) {
+              nav_classes.toggle("shrink");
+            }
+          }
+        })
+      })
+    },
 };
 </script>
 
@@ -49,7 +67,9 @@ export default {
 .nav-collapse .navbar-nav {
     text-align: right;
 }
-
+.navbar.shrink{
+  background: #0d0d31;
+}
 .navbar-nav {
     align-items: center;
 
