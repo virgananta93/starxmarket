@@ -6,15 +6,16 @@
       @selected="setSelected"
     >
       <Tab :isSelected="selected === 'STARX Markets'">
-        TEST
+        <b-container class="star-listing-data">
+          <StarxListing />
+        </b-container>
       </Tab>
       <Tab :isSelected="selected === 'USDT Markets'">
         <b-container>
-           <b-table striped hover :items="vendors"></b-table>
+          <b-table striped hover :items="vendors"></b-table>
         </b-container>
       </Tab>
       <Tab :isSelected="selected === 'Favorites'">
-         <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
       </Tab>
     </TabNav>
   </div>
@@ -25,7 +26,7 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import TabNav from "@/components/TabNav.vue";
 import Tab from "@/components/Tab.vue";
-
+import StarxListing from "@/components/StarxListing.vue";
 import Vue from "vue";
 
 Vue.use(VueAxios, axios);
@@ -35,6 +36,7 @@ export default {
   components: {
     TabNav,
     Tab,
+    StarxListing,
   },
   data() {
     return {
@@ -70,5 +72,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.star-listing-data{
+  margin-top: 50px;
+}
 
 </style>
