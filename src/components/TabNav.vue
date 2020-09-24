@@ -3,38 +3,40 @@
   <div>
     <b-container fluid class="starxheader">
       <b-container>
-        <ul class="nav nav-tab nav-justified">
-          <li class="nav-item" v-for="tab in tabs" :key="tab">
-            <a class="nav-link" :class="{ active: tab === selected }" @click="setTab(tab)" >
-              {{ tab }}
-            </a>
-          </li>
-
+        <b-nav class="nav-justified">
+          <b-nav-item
+            v-for="tab in tabs"
+            :key="tab"
+            :class="{ active: tab === selected }"
+            @click="setTab(tab)"
+          >
+            {{ tab }}
+          </b-nav-item>
+          <!-- SEARCH FORM -->
           <b-nav-form>
             <b-form-input
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
             ></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit"
+            <b-button size="xs" class="my-2 my-sm-0" pill type="submit"
               >Search</b-button
             >
           </b-nav-form>
-        </ul>
-       
+          <!-- END SEARCH -->
+        </b-nav>
       </b-container>
     </b-container>
 
     <b-container>
-         <slot></slot>
+      <slot></slot>
     </b-container>
-    
   </div>
 </template>
 
 <script>
 export default {
-     name: "TabNav",
+  name: "TabNav",
   props: {
     tabs: {
       type: Array,
@@ -49,7 +51,7 @@ export default {
     setTab(tab) {
       this.$emit("selected", tab);
     },
-  }
+  },
 };
 </script>
 

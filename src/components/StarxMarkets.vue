@@ -9,10 +9,12 @@
         TEST
       </Tab>
       <Tab :isSelected="selected === 'USDT Markets'">
-        TESTssad
+        <b-container>
+           <b-table striped hover :items="vendors"></b-table>
+        </b-container>
       </Tab>
       <Tab :isSelected="selected === 'Favorites'">
-        ASDJAPSODJPASJ
+         <b-spinner type="grow" small></b-spinner> I'm <i>custom</i> <strong>title</strong>
       </Tab>
     </TabNav>
   </div>
