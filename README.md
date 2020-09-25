@@ -1,6 +1,10 @@
 # starxmarket
 ## What is this?
 this is just a VUE version of the project for job.
+Beta website
+https://starworktest.web.app
+
+
 ## Project setup
 ```
 npm install
