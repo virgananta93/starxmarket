@@ -9,9 +9,12 @@
       @filtered="onFiltered"
       @row-selected="onRowSelected"
       responsive="sm"
+      class="row-name"
     >
+    
       <template v-slot:cell(favorite)="{ rowSelected }">
         <template v-if="rowSelected">
+         
           <span aria-hidden="true"><b-icon icon="star-fill"></b-icon></span>
 
           <span class="sr-only">Favorite</span>
@@ -22,9 +25,15 @@
         </template>
       </template>
     </b-table>
+    
+     
+
     <b-row class="mb-3"> 
-        <b-col class="col-md-3 mt-4" v-for="favorite in favorites" :key="favorite.id"> 
-            
+        <b-col v-for="item in favorite" v-bind:key="item.id">
+           <p>You favorited <br>{{ item.pair }} with last price  {{ item.last_price }}</p>
+           <b-toast id="fav-toast" v-bind:title="item.pair" auto-hide>
+      Hello, world! This is a toast message.
+    </b-toast>
         </b-col>
     </b-row>
   </div>
@@ -142,6 +151,7 @@ export default {
   methods: {
     onRowSelected(items) {
       this.favorite = items;
+       this.$bvToast.show('fav-toast');
     },
     setFavorited(data) {
       this.favorite = data;
@@ -153,6 +163,7 @@ export default {
 <style lang="scss" scoped>
 @import "./src/assets/css/style.scss";
 
+.bi-star,
 .bi-star-fill {
   color: $primary-starx-color;
 }

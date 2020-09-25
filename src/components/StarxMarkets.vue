@@ -16,6 +16,7 @@
         <b-container v-b-tooltip.hover title="This data is coming from COIN GECKO API NODE.JS AXIOS">
           <b-table small justified
             :items="vendors"
+            class="row-name"
             responsive>
           </b-table>
         </b-container>
@@ -32,7 +33,7 @@
           </b-thead>
 
           <b-tbody>
-            <b-tr v-for="item in vendors" v-bind:key="item.id">
+            <b-tr class="row-name" v-for="item in vendors" v-bind:key="item.id">
               <!-- image -->
               <b-td>
                 <img  class="vendor-icon" v-bind:src="item.image" :alt="item.name"  v-b-tooltip.hover v-bind:title="item.name"/>

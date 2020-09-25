@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./src/assets/css/style.scss";
 
  .table.b-table > tbody > .table-active, .table.b-table > tbody > .table-active > th, .table.b-table > tbody > .table-active > td{
    background-color:transparent !important;
@@ -30,5 +31,8 @@ export default {
 }
  .star-listing .table tr:nth-of-type(even) td:nth-of-type(6) {
     color: green;
+}
+th {
+    color: $primary-starx-color !important;
 }
 </style>

@@ -10,7 +10,6 @@
             :class="{ active: tab === selected }"
             class="nav-market"
             @click="setTab(tab)"
-            
           >
             {{ tab }}
           </b-nav-item>
@@ -26,7 +25,6 @@
                 id="filterInput"
                 placeholder="Type to Search"
               ></b-form-input>
-             
             </b-input-group>
           </b-nav-form>
           <!-- END SEARCH -->
@@ -44,7 +42,6 @@
 export default {
   name: "TabNav",
   props: {
-
     tabs: {
       type: Array,
       required: true,
@@ -62,13 +59,22 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "./src/assets/css/style.scss";
+
 .starxheader {
   background-color: rgb(13, 13, 49);
   padding: 10px 0;
 }
-.nav-market{
-    color: $primary-starx-color;
+.nav-market > a {
+  font-size: 1.2em;
+  color: $primary-starx-color;
+}
+.nav-market.active {
+  a {
+    color: #fff;
+    font-weight: bold;
+  }
 }
 .searchnav {
   border-radius: 50px;
