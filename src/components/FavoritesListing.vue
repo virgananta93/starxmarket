@@ -1,6 +1,6 @@
 <template>
-  <div>
-      
+  <div class="favorite-listin-tab">
+      <h2>Favorited Listing</h2>
   </div>
 </template>
 

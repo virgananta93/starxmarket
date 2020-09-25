@@ -14,14 +14,18 @@
           </b-nav-item>
           <!-- SEARCH FORM -->
           <b-nav-form>
-            <b-form-input
-              size="sm"
-              class="mr-sm-2"
-              placeholder="Search"
-            ></b-form-input>
-            <b-button size="xs" class="my-2 my-sm-0" pill type="submit"
-              >Search</b-button
-            >
+            <b-input-group size="sm">
+              <b-input-group-prepend is-text
+                ><span class="fa fa-search"></span
+              ></b-input-group-prepend>
+              <b-form-input
+                v-model="filter"
+                type="search"
+                id="filterInput"
+                placeholder="Type to Search"
+              ></b-form-input>
+             
+            </b-input-group>
           </b-nav-form>
           <!-- END SEARCH -->
         </b-nav>
@@ -38,6 +42,7 @@
 export default {
   name: "TabNav",
   props: {
+      
     tabs: {
       type: Array,
       required: true,
@@ -59,6 +64,10 @@ export default {
 .starxheader {
   background-color: rgb(13, 13, 49);
   padding: 10px 0;
+}
+
+.searchnav {
+  border-radius: 50px;
 }
 </style>
 

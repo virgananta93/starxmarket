@@ -4,6 +4,7 @@
       :tabs="['STARX Markets', 'USDT Markets', 'Favorites']"
       :selected="selected"
       @selected="setSelected"
+
     >
       <Tab :isSelected="selected === 'STARX Markets'">
         <b-container class="star-listing-data">

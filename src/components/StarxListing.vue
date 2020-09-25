@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="star-listing">
     <b-table
       ref="selectableTable"
       selectable
       :items="items"
       :fields="fields"
+      :filter="filter"
+      @filtered="onFiltered"
       @row-selected="onRowSelected"
       responsive="sm"
     >
@@ -20,10 +22,11 @@
         </template>
       </template>
     </b-table>
-    <p>
-      Selected Rows:<br />
-      {{ favorite }}
-    </p>
+    <b-row class="mb-3"> 
+        <b-col class="col-md-3 mt-4" v-for="favorite in favorites" :key="favorite.id"> 
+            
+        </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -32,11 +35,106 @@ export default {
   name: "StarxListing",
   data() {
     return {
-      fields: ["favorite", "pair", "last_price", '24h_high'],
+      fields: [
+        "favorite",
+        "pair",
+        "last_price",
+        "24h_high",
+        "24h_low",
+        "24h_change",
+        "24h_volume",
+      ],
       items: [
-        { isActive: false, pair: 21, last_price: "Larsen", '24h_high': "Shaw" },
-        { isActive: false, pair: 89, last_price: "Geneva", '24h_high': "Wilson" },
-        { isActive: true, pair: 38, last_price: "Jami", '24h_high': "Carney" },
+        {
+          isActive: false,
+          pair: "BTC / STARX",
+          last_price: "2131 / 1241",
+          "24h_high": "3.600",
+          "24h_low": "3.600",
+          "24h_change": "+3.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "LTC / STARX",
+          last_price: "21413 / 3451",
+          "24h_high": "0.00056",
+          "24h_low": "0.3143",
+          "24h_change": "-8.89%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "ETH / STARX",
+          last_price: "21413 / 3451",
+          "24h_high": "0.00056",
+          "24h_low": "0.3143",
+          "24h_change": "+3.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "DASH / STARX",
+          last_price: "3142 / 12412",
+          "24h_high": "0.55311",
+          "24h_low": "0.312",
+          "24h_change": "-8.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "THETER / STARX",
+          last_price: "2131 / 1241",
+          "24h_high": "3.600",
+          "24h_low": "3.600",
+          "24h_change": "+3.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "EOS / STARX",
+          last_price: "21413 / 3451",
+          "24h_high": "0.00056",
+          "24h_low": "0.3143",
+          "24h_change": "-8.89%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "XRP / STARX",
+          last_price: "3142 / 12412",
+          "24h_high": "0.55311",
+          "24h_low": "0.312",
+          "24h_change": "+3.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "NEO / STARX",
+          last_price: "2131 / 1241",
+          "24h_high": "3.600",
+          "24h_low": "3.600",
+          "24h_change": "-6.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "TRX / STARX",
+          last_price: "21413 / 3451",
+          "24h_high": "0.00056",
+          "24h_low": "0.3143",
+          "24h_change": "+3.90%",
+          "24h_volume": "77,123.07",
+        },
+        {
+          isActive: false,
+          pair: "BTT / STARX",
+          last_price: "3142 / 12412",
+          "24h_high": "0.55311",
+          "24h_low": "0.312",
+          "24h_change": "-7.90%",
+          "24h_volume": "77,123.07",
+        },
       ],
       favorite: [],
     };
@@ -44,6 +142,9 @@ export default {
   methods: {
     onRowSelected(items) {
       this.favorite = items;
+    },
+    setFavorited(data) {
+      this.favorite = data;
     },
   },
 };
@@ -54,9 +155,5 @@ export default {
 
 .bi-star-fill {
   color: $primary-starx-color;
-}
-
-.table > tbody > .table-active, .table > tbody > .table-active > th, .table > tbody > .table-active > td{
-    background-color: red !important;
 }
 </style>
