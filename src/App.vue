@@ -11,7 +11,6 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 
-
 export default {
   components: {
     Navbar,
@@ -21,6 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
+
  .table.b-table > tbody > .table-active, .table.b-table > tbody > .table-active > th, .table.b-table > tbody > .table-active > td{
    background-color:transparent !important;
  }

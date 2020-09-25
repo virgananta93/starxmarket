@@ -4,19 +4,50 @@
       :tabs="['STARX Markets', 'USDT Markets', 'Favorites']"
       :selected="selected"
       @selected="setSelected"
-
+     
     >
-      <Tab :isSelected="selected === 'STARX Markets'">
+      <Tab :isSelected="selected === 'STARX Markets'"  v-b-tooltip.hover title="This is virtual array list data">
         <b-container class="star-listing-data">
           <StarxListing />
         </b-container>
       </Tab>
-      <Tab :isSelected="selected === 'USDT Markets'">
-        <b-container>
-          <b-table striped hover :items="vendors"></b-table>
+
+      <Tab :isSelected="selected === 'USDT Markets'" >
+        <b-container v-b-tooltip.hover title="This data is coming from COIN GECKO API NODE.JS AXIOS">
+          <b-table small justified
+            :items="vendors"
+            responsive>
+          </b-table>
         </b-container>
       </Tab>
-      <Tab :isSelected="selected === 'Favorites'">
+
+      <Tab :isSelected="selected === 'Favorites'" v-b-tooltip.hover title="This data is coming from COIN GECKO API NODE.JS AXIOS But with selected fields">
+        <b-table-simple responsive striped>
+          <b-thead>
+            <b-tr>
+              <b-th v-for="field in fields_vendors" :key="field.id">
+                {{ field }}
+              </b-th>
+            </b-tr>
+          </b-thead>
+
+          <b-tbody>
+            <b-tr v-for="item in vendors" v-bind:key="item.id">
+              <!-- image -->
+              <b-td>
+                <img  class="vendor-icon" v-bind:src="item.image" :alt="item.name"  v-b-tooltip.hover v-bind:title="item.name"/>
+              </b-td>
+              <!-- name -->
+              <b-td>{{ item.name }}</b-td>
+              <b-td>{{ item.current_price }}</b-td>
+              <b-td>{{ item.market_cap_rank }}</b-td>
+              <b-td>{{ item.high_24h }}</b-td>
+              <b-td>{{ item.low_24h }}</b-td>
+               <b-td>{{ item.price_change_24h }}</b-td>
+            </b-tr>
+          </b-tbody>
+
+        </b-table-simple>
       </Tab>
     </TabNav>
   </div>
@@ -42,14 +73,19 @@ export default {
   data() {
     return {
       selected: "STARX Markets",
+      fields_vendors: [
+        "logo",
+        "name",
+        "current price",
+        "market cap rank",
+        "high 24h",
+        "low 24h",
+        "price change 24h",
+      ],
       vendors: [],
     };
   },
-  methods: {
-    setSelected(tab) {
-      this.selected = tab;
-    },
-  },
+
   mounted() {
     Vue.axios
       .get(
@@ -69,12 +105,28 @@ export default {
         console.log(response.data);
       });
   },
+  methods: {
+    setSelected(tab) {
+      this.selected = tab;
+    },
+    onRowSelected(vendors) {
+      this.favorite = vendors;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.star-listing-data{
+.star-listing-data {
   margin-top: 50px;
 }
 
+.vendor-icon {
+  max-width: 35px;
+  margin: 0 auto;
+}
+.b-table-sticky-header, .table-responsive, [class*="table-responsive-"] {
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
 </style>

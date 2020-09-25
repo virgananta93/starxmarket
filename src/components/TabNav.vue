@@ -8,7 +8,9 @@
             v-for="tab in tabs"
             :key="tab"
             :class="{ active: tab === selected }"
+            class="nav-market"
             @click="setTab(tab)"
+            
           >
             {{ tab }}
           </b-nav-item>
@@ -42,7 +44,7 @@
 export default {
   name: "TabNav",
   props: {
-      
+
     tabs: {
       type: Array,
       required: true,
@@ -60,12 +62,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .starxheader {
   background-color: rgb(13, 13, 49);
   padding: 10px 0;
 }
-
+.nav-market{
+    color: $primary-starx-color;
+}
 .searchnav {
   border-radius: 50px;
 }
