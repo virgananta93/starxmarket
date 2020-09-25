@@ -79,6 +79,17 @@ export default {
 .searchnav {
   border-radius: 50px;
 }
+
+@media all and (max-width:767px){
+  .starxheader .nav {
+      display: flex;
+      align-items: center;
+      .form-inline{
+        width: 100%;
+      }
+    }
+
+}
 </style>
 
 

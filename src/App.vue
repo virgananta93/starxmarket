@@ -2,18 +2,18 @@
   <div id="app">
     <Navbar />
     <router-view />
-    <div class="container">
-      
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     Navbar,
+    Footer
   },
   
 };
@@ -34,5 +34,11 @@ export default {
 }
 th {
     color: $primary-starx-color !important;
+}
+
+@media all and (max-width:767px){
+  .fixed-top{
+    background: #0d0d31;
+}
 }
 </style>

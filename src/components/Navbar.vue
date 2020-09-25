@@ -91,10 +91,10 @@ export default {
     background-color: #ddc282 !important;
 }
 
-@media all and (max-width: 768px) {
-    .navbar-nav>li {
-        width: 50%;
-        margin: 0 0 0 auto;
-    }
-}
+// @media all and (max-width: 768px) {
+//     .navbar-nav>li {
+//         width: 50%;
+//         margin: 0 0 0 auto;
+//     }
+// }
 </style>

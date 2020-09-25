@@ -105,9 +105,20 @@
           Duis mollis, est non commodo luctus.
         </h4>
         <div class="button-join">
-            <b-button variant="outline-warning">Button</b-button>
-              <b-button variant="outline-warning">Button</b-button>
-
+          <b-col>
+            <b-link to="/"
+              ><b-button pill variant="outline-warning"
+                >Register Now</b-button
+              ></b-link
+            >
+          </b-col>
+          <b-col>
+            <b-link to="/"
+              ><b-button pill variant="outline-warning"
+                >Exchange</b-button
+              ></b-link
+            >
+          </b-col>
         </div>
       </b-container>
     </div>
@@ -188,15 +199,72 @@ export default {
   }
 }
 .join-starmex {
-  padding: 40px 0;
-  background: #282a41;
+  padding: 6em 0;
+  background: #191b2b;
   .starmex-title {
     font-weight: bold;
     font-size: 4em;
   }
   .starmex-subtitle {
-    color: white;
+    color: #fff;
     font-weight: 300;
+  }
+  .button-join {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    .col .btn {
+      width: 250px;
+      padding: 16px;
+    }
+  }
 }
+
+@media all and (max-width: 767px) {
+  .why-starmex {
+    .highlight-icon {
+      font-size: 15px;
+    }
+    .highlight-service .my-5{
+      padding: 2rem 0;
+      margin: 0!important;
+    }
+    .highlight-service{
+      padding: 20px 0;
+    }
+    .icon-column{
+      border: 0;
+    }
+    .icon-text,.icon-title{
+      text-align:center;
+      margin-top: 15px;
+    }
+    .highlight-content.col-7{
+      max-width: 100% !important;
+      flex: auto;
+    }
+  }
+  .join-starmex {
+    padding: 40px 0;
+    .starmex-title {
+      font-size: 3em;
+    }
+    .starmex-subtitle {
+      font-size: 1.3em;
+      line-height: 30px;
+      text-align: justify;
+      text-align-last: center;
+    }
+    .button-join {
+      width: 100%;
+      display: block;
+      padding-top: 20px;
+      .col:first-of-type {
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
 </style>
